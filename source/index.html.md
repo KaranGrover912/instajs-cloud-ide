@@ -53,24 +53,45 @@ This page has three major sections, namely, Core, Mobile and Standard. Informati
 ## TVideoPlayback
 
 ```typescript
-const kittn = require('kittn');
+module VideoTest{
+  export class TVideoTest extends Core.Forms.TForm {
+    videoPlayback1: Core.VideoPlayback.TVideoPlayback;
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+    VideoTestCreate(sender: Core.Classes.TControl){
+      //For youtube video player
+      this.videoPlayback1.createVideoPlayer(Core.VideoPlayback.TVideoType.youtube, 'oxB8hFDE6GU', true); //specify video id and not entire URL
+      this.videoPlayback1.fullScreen = true;
+      this.videoPlayback1.videoVolume = 80;
+
+      //For HTML5, MP4 video player
+      this.videoPlayback1.createVideoPlayer(Core.VideoPlayback.TVideoType.mp4Video, 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4', true);
+      this.videoPlayback1.fullScreen = true;
+      this.videoPlayback1.videoVolume = 1;
+    }
+  }
+}
 ```
 
-This endpoint retrieves all kittens.
+The TVideoPlayback component allows for a youtube or an HTML5, MP4 video to be added to a form. The component provides the following methods and properties.
 
-### HTTP Request
+### Methods
 
-`GET http://example.com/api/kittens`
+`createVideoPlayer(type, videoId, autoplay)`
 
-### Query Parameters
+this method creates a video player component according to user defined parameters which are
 
-Parameter | Default | Description
+Parameter | Type | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+type | Core.VideoPlayback.TVideoType | set to `Core.VideoPlayback.youtube` for YouTube videos and `Core.VideoPlayback.mp4Video` for MP4 videos.
+videoId | String | is set to video id for youtube videos and full urls for HTML5, MP4 videos.
+autoplay | boolean | If set to true, videos will autoplay as soon as they are loaded.
+
+### Properties
+
+Property | Type | Description
+--------- | ------- | -----------
+allowFullscreen | false | If set to true the videoplayer will be able to go fullscreen
+videoVolume | number | is set from 0 to 100 for youtube videos and from 0 to 1 for MP4 videos
 
 <aside class="success">
 Remember — a happy kitten is an authenticated kitten!

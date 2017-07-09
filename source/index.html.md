@@ -2,13 +2,10 @@
 title: InstaJS Cloud IDE API Reference
 
 language_tabs:
-  - shell
-  - ruby
-  - python
-  - javascript
+  - typescript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='http://ide.instajs.com'>go to InstaJS Cloud IDE</a>
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -16,54 +13,105 @@ includes:
 
 search: true
 ---
+# Introduction 
+> For Example
 
-# Introduction
-
-Welcome to the online support page for the InstaJS Cloud IDE! you may use this website as an API reference for various components provided by the IDE, which can be used to build complete applications using the form builder framework.
-
-You can view code examples in the dark area to the right which are provided in TypeScript.
-
-# Standard
-
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+```typescript
+module sliderTest{
+  export class TSliderTest extends Core.Forms.TForm{
+    slider1: Core.Slider.TSlider;
+    sliderTestCreate(sender: Core.Classes.TControl){
+      this.slider1.items = [
+        {
+          url: '5lWkZ-JaEOc',    
+          type: Core.Slider.Type.youtube
+        }
+      ];
+      this.slider1.initialize();
+    }
+  }
 ```
+Welcome to the online support page for the InstaJS Cloud IDE! 
 
-```python
-import kittn
 
-api = kittn.authorize('meowmeowmeow')
-```
+this webpage may be used as API reference for various components provided by the IDE, which can be used to build complete applications using the form builder framework.
 
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
 
-```javascript
+You can view code examples in the dark area to the right which are provided in TypeScript. You can access and run the following examples on the [IDE](http://ide.instajs.com) 
+itself.
+
+
+This page has three major sections, namely, Core, Mobile and Standard. Information on each component is available in its corresponding section in the IDE. For example, the `TChart` component is found in the Core package in the Cloud IDE and so information on its usage will be found in the Core section of this page.
+
+
+<aside class="notice">
+  skip to your relevant section using the navigation bar on the right or scroll downwards. <!--code>meowmeowmeow</code-->
+</aside>
+
+# Core
+
+## TVideoPlayback
+
+```typescript
 const kittn = require('kittn');
 
 let api = kittn.authorize('meowmeowmeow');
+let kittens = api.kittens.get();
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+This endpoint retrieves all kittens.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+### HTTP Request
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+`GET http://example.com/api/kittens`
 
-`Authorization: meowmeowmeow`
+### Query Parameters
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
+
+<aside class="success">
+Remember — a happy kitten is an authenticated kitten!
 </aside>
 
-# Kittens
+## TChart
+
+```typescript
+const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+let max = api.kittens.get(2);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+
+### HTTP Request
+
+`GET http://example.com/kittens/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to retrieve
+
+# Standard
 
 ## Get All Kittens
 
@@ -93,25 +141,55 @@ let api = kittn.authorize('meowmeowmeow');
 let kittens = api.kittens.get();
 ```
 
-> The above command returns JSON structured like this:
+This endpoint retrieves all kittens.
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
+### HTTP Request
+
+`GET http://example.com/api/kittens`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+include_cats | false | If set to true, the result will also include cats.
+available | true | If set to false, the result will include kittens that have already been adopted.
+
+<aside class="success">
+Remember — a happy kitten is an authenticated kitten!
+</aside>
+
+## Get a Specific Kitten
+
+```typescript
+const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+let max = api.kittens.get(2);
+```
+
+This endpoint retrieves a specific kitten.
+
+<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+
+### HTTP Request
+
+`GET http://example.com/kittens/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to retrieve
+
+# Mobile 
+
+## Get All Kittens
+
+```typescript
+const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+let kittens = api.kittens.get();
 ```
 
 This endpoint retrieves all kittens.
@@ -133,43 +211,14 @@ Remember — a happy kitten is an authenticated kitten!
 
 ## Get a Specific Kitten
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
+```typescript
 const kittn = require('kittn');
 
 let api = kittn.authorize('meowmeowmeow');
 let max = api.kittens.get(2);
 ```
 
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
 
 This endpoint retrieves a specific kitten.
 

@@ -252,7 +252,7 @@
 <p>You can view code examples in the dark area to the right which are provided in TypeScript. You can access and run the following examples on the <a href="http://ide.instajs.com">IDE</a> 
 itself.</p>
 
-<p>This page has three major sections, namely, Core, Mobile and Standard. Information on each component is available in its corresponding section in the IDE. For example, the <code class="prettyprint">TChart</code> component is found in the Core package in the Cloud IDE and so information on its usage will be found in the Core section of this page.</p>
+<p>This page has three major sections, namely, Core, Mobile and Standard. Information on each component is available in its corresponding section in the IDE. For example, the <a href="/#tchart">TChart</a> component is found in the Core package in the Cloud IDE and so information on its usage will be found in the Core section of this page.</p>
 
 <aside class="notice">
   skip to your relevant section using the navigation bar on the right or scroll downwards. <!--code>meowmeowmeow</code-->
@@ -261,25 +261,53 @@ itself.</p>
 <h1 id="core">Core</h1>
 
 <h2 id="tvideoplayback">TVideoPlayback</h2>
+
+<blockquote>
+<p><code class="prettyprint">createVideoPlayer(type, videoId, autoplay)</code> should be called first</p>
+</blockquote>
 <pre class="highlight typescript tab-typescript"><code><span class="kr">module</span> <span class="nx">VideoTest</span><span class="p">{</span>
   <span class="k">export</span> <span class="kr">class</span> <span class="nx">TVideoTest</span> <span class="k">extends</span> <span class="nx">Core</span><span class="p">.</span><span class="nx">Forms</span><span class="p">.</span><span class="nx">TForm</span> <span class="p">{</span>
     <span class="nl">videoPlayback1</span><span class="p">:</span> <span class="nx">Core</span><span class="p">.</span><span class="nx">VideoPlayback</span><span class="p">.</span><span class="nx">TVideoPlayback</span><span class="p">;</span>
 
     <span class="nx">VideoTestCreate</span><span class="p">(</span><span class="nx">sender</span><span class="p">:</span> <span class="nx">Core</span><span class="p">.</span><span class="nx">Classes</span><span class="p">.</span><span class="nx">TControl</span><span class="p">){</span>
       <span class="c1">//For youtube video player</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">videoPlayback1</span><span class="p">.</span><span class="nx">createVideoPlayer</span><span class="p">(</span><span class="nx">Core</span><span class="p">.</span><span class="nx">VideoPlayback</span><span class="p">.</span><span class="nx">TVideoType</span><span class="p">.</span><span class="nx">youtube</span><span class="p">,</span> <span class="s1">'oxB8hFDE6GU'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span> <span class="c1">//specify video id and not entire URL</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">videoPlayback1</span><span class="p">.</span><span class="nx">fullScreen</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">videoPlayback1</span><span class="p">.</span><span class="nx">videoVolume</span> <span class="o">=</span> <span class="mi">80</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">player</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">videoPlayback1</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="kd">type</span> <span class="o">=</span> <span class="nx">Core</span><span class="p">.</span><span class="nx">VideoPlayback</span><span class="p">.</span><span class="nx">TVideoType</span><span class="p">;</span>
+      <span class="nx">player</span><span class="p">.</span><span class="nx">createVideoPlayer</span><span class="p">(</span><span class="kd">type</span><span class="p">.</span><span class="nx">youtube</span><span class="p">,</span> <span class="s1">'oxB8hFDE6GU'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+      <span class="nx">player</span><span class="p">.</span><span class="nx">videoPlayback1</span><span class="p">.</span><span class="nx">fullScreen</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="nx">player</span><span class="p">.</span><span class="nx">videoPlayback1</span><span class="p">.</span><span class="nx">videoVolume</span> <span class="o">=</span> <span class="mi">80</span><span class="p">;</span>
 
       <span class="c1">//For HTML5, MP4 video player</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">videoPlayback1</span><span class="p">.</span><span class="nx">createVideoPlayer</span><span class="p">(</span><span class="nx">Core</span><span class="p">.</span><span class="nx">VideoPlayback</span><span class="p">.</span><span class="nx">TVideoType</span><span class="p">.</span><span class="nx">mp4Video</span><span class="p">,</span> <span class="s1">'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">videoPlayback1</span><span class="p">.</span><span class="nx">fullScreen</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">videoPlayback1</span><span class="p">.</span><span class="nx">videoVolume</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="kd">var</span> <span class="nx">videoUrl</span> <span class="o">=</span> <span class="s1">'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'</span><span class="p">;</span>
+      <span class="nx">player</span><span class="p">.</span><span class="nx">createVideoPlayer</span><span class="p">(</span><span class="kd">type</span><span class="p">.</span><span class="nx">mp4Video</span><span class="p">,</span> <span class="nx">videoUrl</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+      <span class="nx">player</span><span class="p">.</span><span class="nx">fullScreen</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="nx">player</span><span class="p">.</span><span class="nx">videoVolume</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
 <p>The TVideoPlayback component allows for a youtube or an HTML5, MP4 video to be added to a form. The component provides the following methods and properties.</p>
+
+<h3 id="properties">Properties</h3>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>allowFullscreen</td>
+<td>boolean</td>
+<td>If set to true the videoplayer will be able to go fullscreen</td>
+</tr>
+<tr>
+<td>videoVolume</td>
+<td>number</td>
+<td>is set from 0 to 100 for youtube videos and from 0 to 1 for MP4 videos</td>
+</tr>
+</tbody></table>
 
 <h3 id="methods">Methods</h3>
 
@@ -311,6 +339,48 @@ itself.</p>
 </tr>
 </tbody></table>
 
+<aside class="notice">
+  this method must always be called first before any other properties are set. <!--code>meowmeowmeow</code-->
+</aside>
+
+<h2 id="tslider">TSlider</h2>
+
+<blockquote>
+<p>slider items must be assigned before <code class="prettyprint">initialize()</code> is called </p>
+</blockquote>
+<pre class="highlight typescript tab-typescript"><code><span class="kr">module</span> <span class="nx">sliderTest</span><span class="p">{</span>
+  <span class="k">export</span> <span class="kr">class</span> <span class="nx">TSliderTest</span> <span class="k">extends</span> <span class="nx">Core</span><span class="p">.</span><span class="nx">Forms</span><span class="p">.</span><span class="nx">TForm</span><span class="p">{</span>
+    <span class="nl">slider1</span><span class="p">:</span> <span class="nx">Core</span><span class="p">.</span><span class="nx">Slider</span><span class="p">.</span><span class="nx">TSlider</span><span class="p">;</span>
+
+    <span class="nx">sliderTestCreate</span><span class="p">(</span><span class="nx">sender</span><span class="p">:</span> <span class="nx">Core</span><span class="p">.</span><span class="nx">Classes</span><span class="p">.</span><span class="nx">TControl</span><span class="p">){</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">slider1</span><span class="p">.</span><span class="nx">items</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="na">url</span><span class="p">:</span> <span class="s1">'5lWkZ-JaEOc'</span><span class="p">,</span> 
+          <span class="na">type</span><span class="p">:</span> <span class="nx">Core</span><span class="p">.</span><span class="nx">Slider</span><span class="p">.</span><span class="nx">Type</span><span class="p">.</span><span class="nx">youtube</span><span class="p">,</span>
+          <span class="na">autoplay</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> 
+          <span class="na">noControls</span><span class="p">:</span> <span class="kc">true</span>        
+        <span class="p">},</span> 
+
+        <span class="p">{</span>
+          <span class="na">url</span><span class="p">:</span> <span class="s1">'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'</span><span class="p">,</span> 
+          <span class="na">type</span><span class="p">:</span> <span class="nx">Core</span><span class="p">.</span><span class="nx">Slider</span><span class="p">.</span><span class="nx">Type</span><span class="p">.</span><span class="nx">mp4</span><span class="p">,</span>
+          <span class="na">autoplay</span><span class="p">:</span> <span class="kc">true</span>
+        <span class="p">},</span>
+
+        <span class="p">{</span>
+          <span class="na">url</span><span class="p">:</span> <span class="s1">'https://www.w3schools.com/css/img_fjords.jpg'</span><span class="p">,</span>
+          <span class="na">type</span><span class="p">:</span> <span class="nx">Core</span><span class="p">.</span><span class="nx">Slider</span><span class="p">.</span><span class="nx">Type</span><span class="p">.</span><span class="nx">image</span>
+        <span class="p">}</span>
+
+      <span class="p">];</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">slider1</span><span class="p">.</span><span class="nx">initialize</span><span class="p">();</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">slider1</span><span class="p">.</span><span class="nx">autoPlay</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<p>This component allows developers to add an image and video slider element to their form(s)</p>
+
 <h3 id="properties">Properties</h3>
 
 <table><thead>
@@ -321,20 +391,93 @@ itself.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>allowFullscreen</td>
-<td>false</td>
-<td>If set to true the videoplayer will be able to go fullscreen</td>
+<td>items</td>
+<td>Object[ ]</td>
+<td>accepts an array of javascript objects with <code class="prettyprint">url</code>, <code class="prettyprint">type</code>, <code class="prettyprint">autoplay</code> and <code class="prettyprint">noControls</code> properties</td>
 </tr>
 <tr>
-<td>videoVolume</td>
+<td>autoPlay</td>
+<td>boolean</td>
+<td>If set to true the slider component will automatically change slides</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Core.Slider.Type</td>
+<td>is either <code class="prettyprint">Core.Slider.Type.youtube</code>, <code class="prettyprint">Core.Slider.Type.mp4</code> or <code class="prettyprint">Core.Slider.Type.image</code></td>
+</tr>
+<tr>
+<td>currentIndex</td>
 <td>number</td>
-<td>is set from 0 to 100 for youtube videos and from 0 to 1 for MP4 videos</td>
+<td>can be used to jump to a certain slide in the slider</td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="notice">
+   items must be assigned before any methods are called.
 </aside>
+
+<h3 id="methods">Methods</h3>
+
+<p><code class="prettyprint">initialize()</code></p>
+
+<p>This method creates the TSlider component in the form using the items assigned.</p>
+
+<p><code class="prettyprint">start()</code></p>
+
+<p>Starts slider from the first slide or creates the TSlider element if <code class="prettyprint">initialize()</code> has not been called yet.</p>
+
+<p><code class="prettyprint">next()</code></p>
+
+<p>Goes to next slide.</p>
+
+<p><code class="prettyprint">pause()</code></p>
+
+<p>Pauses the slider if autoPlay is enabled.</p>
+
+<p><code class="prettyprint">play()</code></p>
+
+<p>Plays the slider if it is paused.</p>
+
+<p><code class="prettyprint">prev()</code></p>
+
+<p>Goes to previous slide</p>
+
+<h2 id="tfileuploader">TFileUploader</h2>
+<pre class="highlight typescript tab-typescript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves a specific kitten.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
+
+<h3 id="url-parameters">URL Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the kitten to retrieve</td>
+</tr>
+</tbody></table>
 
 <h2 id="tchart">TChart</h2>
 <pre class="highlight typescript tab-typescript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
@@ -354,8 +497,6 @@ Remember — a happy kitten is an authenticated kitten!
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 <h3 id="http-request">HTTP Request</h3>
 

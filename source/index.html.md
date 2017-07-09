@@ -41,7 +41,7 @@ You can view code examples in the dark area to the right which are provided in T
 itself.
 
 
-This page has three major sections, namely, Core, Mobile and Standard. Information on each component is available in its corresponding section in the IDE. For example, the `TChart` component is found in the Core package in the Cloud IDE and so information on its usage will be found in the Core section of this page.
+This page has three major sections, namely, Core, Mobile and Standard. Information on each component is available in its corresponding section in the IDE. For example, the [TChart](/#tchart) component is found in the Core package in the Cloud IDE and so information on its usage will be found in the Core section of this page.
 
 
 <aside class="notice">
@@ -52,6 +52,8 @@ This page has three major sections, namely, Core, Mobile and Standard. Informati
 
 ## TVideoPlayback
 
+> `createVideoPlayer(type, videoId, autoplay)` should be called first
+
 ```typescript
 module VideoTest{
   export class TVideoTest extends Core.Forms.TForm {
@@ -59,20 +61,30 @@ module VideoTest{
 
     VideoTestCreate(sender: Core.Classes.TControl){
       //For youtube video player
-      this.videoPlayback1.createVideoPlayer(Core.VideoPlayback.TVideoType.youtube, 'oxB8hFDE6GU', true); //specify video id and not entire URL
-      this.videoPlayback1.fullScreen = true;
-      this.videoPlayback1.videoVolume = 80;
+      var player = this.videoPlayback1;
+      var type = Core.VideoPlayback.TVideoType;
+      player.createVideoPlayer(type.youtube, 'oxB8hFDE6GU', true);
+      player.videoPlayback1.fullScreen = true;
+      player.videoPlayback1.videoVolume = 80;
 
       //For HTML5, MP4 video player
-      this.videoPlayback1.createVideoPlayer(Core.VideoPlayback.TVideoType.mp4Video, 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4', true);
-      this.videoPlayback1.fullScreen = true;
-      this.videoPlayback1.videoVolume = 1;
+      var videoUrl = 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4';
+      player.createVideoPlayer(type.mp4Video, videoUrl, true);
+      player.fullScreen = true;
+      player.videoVolume = 1;
     }
   }
 }
 ```
 
 The TVideoPlayback component allows for a youtube or an HTML5, MP4 video to be added to a form. The component provides the following methods and properties.
+
+### Properties
+
+Property | Type | Description
+--------- | ------- | -----------
+allowFullscreen | boolean | If set to true the videoplayer will be able to go fullscreen
+videoVolume | number | is set from 0 to 100 for youtube videos and from 0 to 1 for MP4 videos
 
 ### Methods
 
@@ -86,16 +98,122 @@ type | Core.VideoPlayback.TVideoType | set to `Core.VideoPlayback.youtube` for Y
 videoId | String | is set to video id for youtube videos and full urls for HTML5, MP4 videos.
 autoplay | boolean | If set to true, videos will autoplay as soon as they are loaded.
 
+<aside class="notice">
+  this method must always be called first before any other properties are set. <!--code>meowmeowmeow</code-->
+</aside>
+
+## TSlider
+
+> slider items must be assigned before `initialize()` is called 
+
+```typescript
+module sliderTest{
+  export class TSliderTest extends Core.Forms.TForm{
+    slider1: Core.Slider.TSlider;
+  
+    sliderTestCreate(sender: Core.Classes.TControl){
+      this.slider1.items = [
+        {
+          url: '5lWkZ-JaEOc', 
+          type: Core.Slider.Type.youtube,
+          autoplay: true, 
+          noControls: true        
+        }, 
+        
+        {
+          url: 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4', 
+          type: Core.Slider.Type.mp4,
+          autoplay: true
+        },
+        
+        {
+          url: 'https://www.w3schools.com/css/img_fjords.jpg',
+          type: Core.Slider.Type.image
+        }
+        
+      ];
+      this.slider1.initialize();
+      this.slider1.autoPlay = true;
+    }
+  }
+}
+```
+
+This component allows developers to add an image and video slider element to their form(s)
+
 ### Properties
 
 Property | Type | Description
 --------- | ------- | -----------
-allowFullscreen | false | If set to true the videoplayer will be able to go fullscreen
-videoVolume | number | is set from 0 to 100 for youtube videos and from 0 to 1 for MP4 videos
+items | Object[ ]| accepts an array of javascript objects with `url`, `type`, `autoplay` and `noControls` properties
+autoPlay | boolean | If set to true the slider component will automatically change slides
+type | Core.Slider.Type | is either `Core.Slider.Type.youtube`, `Core.Slider.Type.mp4` or `Core.Slider.Type.image`
+currentIndex | number | can be used to jump to a certain slide in the slider
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="notice">
+   items must be assigned before any methods are called.
 </aside>
+
+### Methods
+
+`initialize()`
+
+This method creates the TSlider component in the form using the items assigned.
+
+`start()`
+
+Starts slider from the first slide or creates the TSlider element if `initialize()` has not been called yet.
+
+`next()`
+
+Goes to next slide.
+
+`pause()`
+
+Pauses the slider if autoPlay is enabled.
+
+`play()`
+
+Plays the slider if it is paused.
+
+`prev()`
+
+Goes to previous slide
+
+
+
+## TFileUploader
+
+```typescript
+const kittn = require('kittn');
+
+let api = kittn.authorize('meowmeowmeow');
+let max = api.kittens.get(2);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "name": "Max",
+  "breed": "unknown",
+  "fluffiness": 5,
+  "cuteness": 10
+}
+```
+
+This endpoint retrieves a specific kitten.
+
+### HTTP Request
+
+`GET http://example.com/kittens/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the kitten to retrieve
 
 ## TChart
 
@@ -119,8 +237,6 @@ let max = api.kittens.get(2);
 ```
 
 This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 ### HTTP Request
 

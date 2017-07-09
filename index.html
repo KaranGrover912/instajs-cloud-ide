@@ -261,35 +261,74 @@ itself.</p>
 <h1 id="core">Core</h1>
 
 <h2 id="tvideoplayback">TVideoPlayback</h2>
-<pre class="highlight typescript tab-typescript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<pre class="highlight typescript tab-typescript"><code><span class="kr">module</span> <span class="nx">VideoTest</span><span class="p">{</span>
+  <span class="k">export</span> <span class="kr">class</span> <span class="nx">TVideoTest</span> <span class="k">extends</span> <span class="nx">Core</span><span class="p">.</span><span class="nx">Forms</span><span class="p">.</span><span class="nx">TForm</span> <span class="p">{</span>
+    <span class="nl">videoPlayback1</span><span class="p">:</span> <span class="nx">Core</span><span class="p">.</span><span class="nx">VideoPlayback</span><span class="p">.</span><span class="nx">TVideoPlayback</span><span class="p">;</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+    <span class="nx">VideoTestCreate</span><span class="p">(</span><span class="nx">sender</span><span class="p">:</span> <span class="nx">Core</span><span class="p">.</span><span class="nx">Classes</span><span class="p">.</span><span class="nx">TControl</span><span class="p">){</span>
+      <span class="c1">//For youtube video player</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">videoPlayback1</span><span class="p">.</span><span class="nx">createVideoPlayer</span><span class="p">(</span><span class="nx">Core</span><span class="p">.</span><span class="nx">VideoPlayback</span><span class="p">.</span><span class="nx">TVideoType</span><span class="p">.</span><span class="nx">youtube</span><span class="p">,</span> <span class="s1">'oxB8hFDE6GU'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span> <span class="c1">//specify video id and not entire URL</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">videoPlayback1</span><span class="p">.</span><span class="nx">fullScreen</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">videoPlayback1</span><span class="p">.</span><span class="nx">videoVolume</span> <span class="o">=</span> <span class="mi">80</span><span class="p">;</span>
+
+      <span class="c1">//For HTML5, MP4 video player</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">videoPlayback1</span><span class="p">.</span><span class="nx">createVideoPlayer</span><span class="p">(</span><span class="nx">Core</span><span class="p">.</span><span class="nx">VideoPlayback</span><span class="p">.</span><span class="nx">TVideoType</span><span class="p">.</span><span class="nx">mp4Video</span><span class="p">,</span> <span class="s1">'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">videoPlayback1</span><span class="p">.</span><span class="nx">fullScreen</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">videoPlayback1</span><span class="p">.</span><span class="nx">videoVolume</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
-<p>This endpoint retrieves all kittens.</p>
+<p>The TVideoPlayback component allows for a youtube or an HTML5, MP4 video to be added to a form. The component provides the following methods and properties.</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="methods">Methods</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
+<p><code class="prettyprint">createVideoPlayer(type, videoId, autoplay)</code></p>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<p>this method creates a video player component according to user defined parameters which are</p>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
+<td>type</td>
+<td>Core.VideoPlayback.TVideoType</td>
+<td>set to <code class="prettyprint">Core.VideoPlayback.youtube</code> for YouTube videos and <code class="prettyprint">Core.VideoPlayback.mp4Video</code> for MP4 videos.</td>
 </tr>
 <tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>videoId</td>
+<td>String</td>
+<td>is set to video id for youtube videos and full urls for HTML5, MP4 videos.</td>
+</tr>
+<tr>
+<td>autoplay</td>
+<td>boolean</td>
+<td>If set to true, videos will autoplay as soon as they are loaded.</td>
+</tr>
+</tbody></table>
+
+<h3 id="properties">Properties</h3>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>allowFullscreen</td>
+<td>false</td>
+<td>If set to true the videoplayer will be able to go fullscreen</td>
+</tr>
+<tr>
+<td>videoVolume</td>
+<td>number</td>
+<td>is set from 0 to 100 for youtube videos and from 0 to 1 for MP4 videos</td>
 </tr>
 </tbody></table>
 

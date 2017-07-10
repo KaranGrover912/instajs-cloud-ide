@@ -6,7 +6,6 @@
 
 The Errors section will be updated with known errors soon.
 
-
 Error Code | Meaning
 ---------- | -------
 NA | Not applicable

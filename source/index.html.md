@@ -158,6 +158,8 @@ currentIndex | number | can be used to jump to a certain slide in the slider
 
 `initialize()`
 
+
+jksjfskfj
 This method creates the TSlider component in the form using the items assigned.
 
 `start()`

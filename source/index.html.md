@@ -216,168 +216,158 @@ method | string | specifies upload method e.g: "POST", "PUT"
 timeout | number | specifies timeout in milliseconds
 headers | json | accepts json to specify headers
 maxFiles | number | specifies the maximum number of files required
-maxFileSize | number | specifies maximum file size of upload
+maxFileSize | number | specifies maximum file size in bytes of file to upload
 localize | object | allows changes to the file upload component
+noDrop | boolean | if set to true, the file uploader component will not allow drop to upload
+formDataName | string | specifies the 'name' property at Content-Disposition
+
 
 ### Methods
 
-Property | Type | Description
---------- | ------- | -----------
-items | Object[ ]| accepts an array of javascript objects with `url`, `type`, `autoplay` and `noControls` properties
+No methods are required for this component
 
 ## TChart
 
+> Documentation under review at the moment.
+
 ```typescript
-const kittn = require('kittn');
+const InstaJS = require('instajs');
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+var api = InstaJS.authorize('insta-code');
+console.log("Documentation currently being updated. Please check back later.")
 ```
 
-> The above command returns JSON structured like this:
+Documentation not available at the moment. Please check later
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
+### Properties
 
-This endpoint retrieves a specific kitten.
+Currently unavailable
 
-### HTTP Request
+### Method
 
-`GET http://example.com/kittens/<ID>`
+`comingSoon(ID)`
 
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+Property | Type | Description
+--------- | ------- | -----------
+ID | number | the method ID
 
 # Standard
 
-## Get All Kittens
+## TStandardElement
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
+> Documentation under review at the moment.
 
 ```typescript
-const kittn = require('kittn');
+const InstaJS = require('instajs');
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+var api = InstaJS.authorize('insta-code');
+console.log("Documentation currently being updated. Please check back later.")
 ```
 
-This endpoint retrieves a specific kitten.
+Documentation not available at the moment. Please check later
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+### Properties
 
-### HTTP Request
+Currently unavailable
 
-`GET http://example.com/kittens/<ID>`
+### Method
 
-### URL Parameters
+`comingSoon(ID)`
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+Property | Type | Description
+--------- | ------- | -----------
+ID | number | the method ID
+
+<aside class="success"> 
+  Coming soon!
+</aside>
+
+## TStandardElement
+
+> Documentation under review at the moment.
+
+```typescript
+const InstaJS = require('instajs');
+
+var api = InstaJS.authorize('insta-code');
+console.log("Documentation currently being updated. Please check back later.")
+```
+
+Documentation not available at the moment. Please check later
+
+### Properties
+
+Currently unavailable
+
+### Method
+
+`comingSoon(ID)`
+
+Property | Type | Description
+--------- | ------- | -----------
+ID | number | the method ID
+
+<aside class="success"> 
+  Coming soon!
+</aside>
 
 # Mobile 
 
-## Get All Kittens
+## TMobileElement
+
+> Documentation under review at the moment.
 
 ```typescript
-const kittn = require('kittn');
+const InstaJS = require('instajs');
 
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+var api = InstaJS.authorize('insta-code');
+console.log("Documentation currently being updated. Please check back later.")
 ```
 
-This endpoint retrieves all kittens.
+Documentation not available at the moment. Please check later
 
-### HTTP Request
+### Properties
 
-`GET http://example.com/api/kittens`
+Currently unavailable
 
-### Query Parameters
+### Method
 
-Parameter | Default | Description
+`comingSoon(ID)`
+
+Property | Type | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+ID | number | the method ID
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="success"> 
+  Coming soon!
 </aside>
 
-## Get a Specific Kitten
+## TMobileElement
 
+> Documentation under review at the moment.
 
 ```typescript
-const kittn = require('kittn');
+const InstaJS = require('instajs');
 
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+var api = InstaJS.authorize('insta-code');
+console.log("Documentation currently being updated. Please check back later.")
 ```
 
+Documentation not available at the moment. Please check later
 
-This endpoint retrieves a specific kitten.
+### Properties
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+Currently unavailable
 
-### HTTP Request
+### Method
 
-`GET http://example.com/kittens/<ID>`
+`comingSoon(ID)`
 
-### URL Parameters
+Property | Type | Description
+--------- | ------- | -----------
+ID | number | the method ID
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+<aside class="success"> 
+  Coming soon!
+</aside>
 

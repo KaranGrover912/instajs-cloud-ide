@@ -507,16 +507,48 @@ itself.</p>
 <tr>
 <td>maxFileSize</td>
 <td>number</td>
-<td>specifies maximum file size of upload</td>
+<td>specifies maximum file size in bytes of file to upload</td>
 </tr>
 <tr>
 <td>localize</td>
 <td>object</td>
 <td>allows changes to the file upload component</td>
 </tr>
+<tr>
+<td>noDrop</td>
+<td>boolean</td>
+<td>if set to true, the file uploader component will not allow drop to upload</td>
+</tr>
+<tr>
+<td>formDataName</td>
+<td>string</td>
+<td>specifies the &lsquo;name&rsquo; property at Content-Disposition</td>
+</tr>
 </tbody></table>
 
 <h3 id="methods">Methods</h3>
+
+<p>No methods are required for this component</p>
+
+<h2 id="tchart">TChart</h2>
+
+<blockquote>
+<p>Documentation under review at the moment.</p>
+</blockquote>
+<pre class="highlight typescript tab-typescript"><code><span class="kd">const</span> <span class="nx">InstaJS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'instajs'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">InstaJS</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'insta-code'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Documentation currently being updated. Please check back later."</span><span class="p">)</span>
+</code></pre>
+<p>Documentation not available at the moment. Please check later</p>
+
+<h3 id="properties">Properties</h3>
+
+<p>Currently unavailable</p>
+
+<h3 id="method">Method</h3>
+
+<p><code class="prettyprint">comingSoon(ID)</code></p>
 
 <table><thead>
 <tr>
@@ -526,192 +558,167 @@ itself.</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>items</td>
-<td>Object[ ]</td>
-<td>accepts an array of javascript objects with <code class="prettyprint">url</code>, <code class="prettyprint">type</code>, <code class="prettyprint">autoplay</code> and <code class="prettyprint">noControls</code> properties</td>
-</tr>
-</tbody></table>
-
-<h2 id="tchart">TChart</h2>
-<pre class="highlight typescript tab-typescript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
 <td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>number</td>
+<td>the method ID</td>
 </tr>
 </tbody></table>
 
 <h1 id="standard">Standard</h1>
 
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id="tstandardelement">TStandardElement</h2>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<blockquote>
+<p>Documentation under review at the moment.</p>
+</blockquote>
+<pre class="highlight typescript tab-typescript"><code><span class="kd">const</span> <span class="nx">InstaJS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'instajs'</span><span class="p">);</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">InstaJS</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'insta-code'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Documentation currently being updated. Please check back later."</span><span class="p">)</span>
 </code></pre>
-<p>This endpoint retrieves all kittens.</p>
+<p>Documentation not available at the moment. Please check later</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="properties">Properties</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
+<p>Currently unavailable</p>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<h3 id="method">Method</h3>
+
+<p><code class="prettyprint">comingSoon(ID)</code></p>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight typescript tab-typescript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
+<th>Property</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>number</td>
+<td>the method ID</td>
 </tr>
 </tbody></table>
+
+<aside class="success"> 
+  Coming soon!
+</aside>
+
+<h2 id="tstandardelement">TStandardElement</h2>
+
+<blockquote>
+<p>Documentation under review at the moment.</p>
+</blockquote>
+<pre class="highlight typescript tab-typescript"><code><span class="kd">const</span> <span class="nx">InstaJS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'instajs'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">InstaJS</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'insta-code'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Documentation currently being updated. Please check back later."</span><span class="p">)</span>
+</code></pre>
+<p>Documentation not available at the moment. Please check later</p>
+
+<h3 id="properties">Properties</h3>
+
+<p>Currently unavailable</p>
+
+<h3 id="method">Method</h3>
+
+<p><code class="prettyprint">comingSoon(ID)</code></p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>number</td>
+<td>the method ID</td>
+</tr>
+</tbody></table>
+
+<aside class="success"> 
+  Coming soon!
+</aside>
 
 <h1 id="mobile">Mobile</h1>
 
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight typescript tab-typescript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<h2 id="tmobileelement">TMobileElement</h2>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
+<blockquote>
+<p>Documentation under review at the moment.</p>
+</blockquote>
+<pre class="highlight typescript tab-typescript"><code><span class="kd">const</span> <span class="nx">InstaJS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'instajs'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">InstaJS</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'insta-code'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Documentation currently being updated. Please check back later."</span><span class="p">)</span>
 </code></pre>
-<p>This endpoint retrieves all kittens.</p>
+<p>Documentation not available at the moment. Please check later</p>
 
-<h3 id="http-request">HTTP Request</h3>
+<h3 id="properties">Properties</h3>
 
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
+<p>Currently unavailable</p>
 
-<h3 id="query-parameters">Query Parameters</h3>
+<h3 id="method">Method</h3>
+
+<p><code class="prettyprint">comingSoon(ID)</code></p>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight typescript tab-typescript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
+<th>Property</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td>number</td>
+<td>the method ID</td>
 </tr>
 </tbody></table>
+
+<aside class="success"> 
+  Coming soon!
+</aside>
+
+<h2 id="tmobileelement">TMobileElement</h2>
+
+<blockquote>
+<p>Documentation under review at the moment.</p>
+</blockquote>
+<pre class="highlight typescript tab-typescript"><code><span class="kd">const</span> <span class="nx">InstaJS</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'instajs'</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">InstaJS</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'insta-code'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Documentation currently being updated. Please check back later."</span><span class="p">)</span>
+</code></pre>
+<p>Documentation not available at the moment. Please check later</p>
+
+<h3 id="properties">Properties</h3>
+
+<p>Currently unavailable</p>
+
+<h3 id="method">Method</h3>
+
+<p><code class="prettyprint">comingSoon(ID)</code></p>
+
+<table><thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>number</td>
+<td>the method ID</td>
+</tr>
+</tbody></table>
+
+<aside class="success"> 
+  Coming soon!
+</aside>
 
           <h1 id="errors">Errors</h1>
 

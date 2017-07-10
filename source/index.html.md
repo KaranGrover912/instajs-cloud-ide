@@ -184,36 +184,46 @@ Goes to previous slide
 
 ## TFileUploader
 
+> Relevant properties may be specified individually as follows
+
 ```typescript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+module fileUploadTest{
+  export class TFileUploadTest extends Core.Forms.TForm{
+    fileUploader1: Core.FileUploader.TFileUploader;
+    
+    fileUploadTestCreate(sender: Core.Classes.TControl){
+      this.fileUploader1.accept = '.html';
+      this.fileUploader1.target = "www.example.com";
+      this.fileUploader1.method = "POST";
+      this.fileUploader1.timeout = 100000000;
+      this.fileUploader1.headers = "{'X-Custom-Header' : 'value'}"; //test headers
+      this.fileUploader1.formDataName = "my-attachment";
+      this.fileUploader1.maxFiles = 10;
+    }
+  }
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This component allows developers to add a file upload component to their forms with support for drop to upload.
 
-### HTTP Request
+### Properties
 
-`GET http://example.com/kittens/<ID>`
+Property | Type | Description
+--------- | ------- | -----------
+accept | string | is assigned to specify the file type
+target | string | specifies the server url
+method | string | specifies upload method e.g: "POST", "PUT"
+timeout | number | specifies timeout in milliseconds
+headers | json | accepts json to specify headers
+maxFiles | number | specifies the maximum number of files required
+maxFileSize | number | specifies maximum file size of upload
+localize | object | allows changes to the file upload component
 
-### URL Parameters
+### Methods
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+Property | Type | Description
+--------- | ------- | -----------
+items | Object[ ]| accepts an array of javascript objects with `url`, `type`, `autoplay` and `noControls` properties
 
 ## TChart
 
